@@ -3,15 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MJ Games Studio — Игры для мобильных и браузеров</title>
+    <title>MJ Games — Мобильные словесные головоломки</title>
     <style>
         :root {
-            --bg-color: #0f172a;
-            --card-bg: #1e293b;
+            --bg-color: #0d0b21;
+            --card-bg: #191635;
             --text-main: #f8fafc;
-            --text-muted: #94a3b8;
-            --accent: #38bdf8;
-            --btn-bg: #ff4757;
+            --text-muted: #a5a1ca;
+            --accent: #bb86fc;
+            --accent-glow: #03dac6;
+            --btn-bg: #6200ee;
         }
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
@@ -24,100 +25,160 @@
         header {
             max-width: 1100px;
             margin: 0 auto;
-            padding: 40px 20px;
+            padding: 60px 20px 40px;
             text-align: center;
         }
-        h1 { font-size: 3rem; margin-bottom: 10px; }
-        .subtitle { color: var(--text-muted); font-size: 1.2rem; max-width: 600px; margin: 0 auto 30px; }
+        h1 { 
+            font-size: 3.5rem; 
+            margin-bottom: 10px; 
+            letter-spacing: -1px;
+            background: linear-gradient(45deg, #ff79c6, #bd93f9);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .subtitle { color: var(--text-muted); font-size: 1.25rem; max-width: 600px; margin: 0 auto 30px; }
         
         .container { max-width: 1100px; margin: 0 auto; padding: 20px; }
         
-        h2 { border-bottom: 2px solid var(--card-bg); padding-bottom: 10px; margin-top: 50px; }
+        h2 { border-bottom: 2px solid #231f47; padding-bottom: 10px; margin-top: 50px; color: var(--accent); }
         
         /* Сетка для игр */
         .games-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(45%, 1fr));
             gap: 30px;
             margin-top: 30px;
         }
+        @media (max-width: 768px) {
+            .games-grid { grid-template-columns: 1fr; }
+        }
         .game-card {
             background-color: var(--card-bg);
-            border-radius: 12px;
+            border: 1px solid #2a2554;
+            border-radius: 16px;
             overflow: hidden;
             display: flex;
             flex-direction: column;
+            transition: transform 0.2s, box-shadow 0.2s;
         }
-        .game-info { padding: 20px; flex-grow: 1; display: flex; flex-direction: column; }
-        .game-genre { color: var(--accent); font-size: 0.85rem; font-weight: bold; text-transform: uppercase; }
-        .game-title { font-size: 1.5rem; margin: 10px 0; }
-        .game-desc { color: var(--text-muted); font-size: 0.95rem; flex-grow: 1; margin-bottom: 20px; }
+        .game-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(187, 134, 252, 0.1);
+        }
+        .game-info { padding: 30px; flex-grow: 1; display: flex; flex-direction: column; }
+        .game-genre { color: var(--accent-glow); font-size: 0.85rem; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; }
+        .game-title { font-size: 1.6rem; margin: 10px 0; }
+        .game-desc { color: var(--text-muted); font-size: 0.95rem; flex-grow: 1; margin-bottom: 25px; }
         
         /* Кнопки */
-        .buttons-group { display: flex; gap: 10px; flex-wrap: wrap; }
+        .buttons-group { display: flex; gap: 10px; }
         .btn {
             background-color: var(--btn-bg);
             color: white;
             text-decoration: none;
-            padding: 8px 16px;
-            border-radius: 6px;
-            font-size: 0.9rem;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-size: 0.95rem;
             font-weight: bold;
-            transition: opacity 0.2s;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.2s;
+            flex-grow: 1;
         }
-        .btn:hover { opacity: 0.9; }
-        .btn.secondary { background-color: #475569; }
+        .btn:hover { background-color: #7c4dff; }
 
-        /* Контакты */
-        .footer { text-align: center; padding: 60px 20px; color: var(--text-muted); }
-        .footer a { color: var(--accent); text-decoration: none; }
+        /* Раздел Где играть и Контакты */
+        .info-section {
+            background: #141226;
+            padding: 30px;
+            border-radius: 16px;
+            margin-top: 20px;
+        }
+        .contacts-link {
+            color: var(--accent-glow);
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .footer { text-align: center; padding: 60px 20px; color: var(--text-muted); font-size: 0.9rem; }
     </style>
 </head>
 <body>
 
     <header>
-        <h1>MJ Games Studio</h1>
-        <p class="subtitle">Мы создаем яркие казуальные, аркадные и пазл-игры для мобильных телефонов и браузеров.</p>
+        <h1>MJ Games</h1>
+        <p class="subtitle">Мы разрабатываем мобильные словесные головоломки, в которые вам действительно захочется играть.</p>
     </header>
 
     <div class="container">
         <h2>Наши игры</h2>
         <div class="games-grid">
             
-            <!-- КАРТОЧКА ИГРЫ 1 -->
+            <!-- Cryptogram Clues -->
             <div class="game-card">
                 <div class="game-info">
-                    <span class="game-genre">Пазл</span>
-                    <h3 class="game-title">Название вашей игры 1</h3>
-                    <p class="game-desc">Короткое и интересное описание первой игры. Расскажите игроку, в чем суть игрового процесса.</p>
+                    <span class="game-genre">Головоломка / Криптограмма</span>
+                    <h3 class="game-title">Cryptogram Clues: Word Puzzles</h3>
+                    <p class="game-desc">Расшифровывайте цитаты, разгадывайте скрытые послания и тренируйте мозг. Увлекательные логические словесные шифры с подсказками для настоящих любителей лингвистических загадок.</p>
                     <div class="buttons-group">
-                        <a href="ССЫЛКА_НА_GOOGLE_PLAY" class="btn" target="_blank">Google Play</a>
-                        <a href="ССЫЛКА_НА_БРАУЗЕРНУЮ_ВЕРСИЮ" class="btn secondary" target="_blank">Играть в браузере</a>
+                        <a href="https://google.com" class="btn" target="_blank">Скачать на Google Play</a>
                     </div>
                 </div>
             </div>
 
-            <!-- КАРТОЧКА ИГРЫ 2 -->
+            <!-- 4 фото 1 слово (RU) -->
             <div class="game-card">
                 <div class="game-info">
-                    <span class="game-genre">Аркада</span>
-                    <h3 class="game-title">Название вашей игры 2</h3>
-                    <p class="game-desc">Короткое и интересное описание второй игры. Что нужно делать игроку, чтобы победить?</p>
+                    <span class="game-genre">Словесная игра</span>
+                    <h3 class="game-title">4 фото 1 слово: угадай слово</h3>
+                    <p class="game-desc">Классическая и любимая миллионами головоломка. Что объединяет четыре ярких изображения? Угадайте скрытое слово, используйте логику и расширяйте свой словарный запас.</p>
                     <div class="buttons-group">
-                        <a href="ССЫЛКА_НА_GOOGLE_PLAY" class="btn" target="_blank">Google Play</a>
+                        <a href="https://google.com" class="btn" target="_blank">Скачать на Google Play</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4 Fotos 1 Palabra (ES) -->
+            <div class="game-card">
+                <div class="game-info">
+                    <span class="game-genre">Словесная игра / На испанском</span>
+                    <h3 class="game-title">4 Fotos 1 Palabra en Español</h3>
+                    <p class="game-desc">La versión en español del clásico juego de ingenio. ¿Qué palabra se esconde detrás de las 4 imágenes? Pon a prueba tu mente y diviértete adivinando.</p>
+                    <div class="buttons-group">
+                        <a href="https://google.com" class="btn" target="_blank">Скачать на Google Play</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4 Pics 1 Word (EN) -->
+            <div class="game-card">
+                <div class="game-info">
+                    <span class="game-genre">Словесная игра / На английском</span>
+                    <h3 class="game-title">4 Pics 1 Word - Guess The Word</h3>
+                    <p class="game-desc">4 pictures have 1 word in common — what is it? Train your brain, improve your English vocabulary, and solve countless engaging levels.</p>
+                    <div class="buttons-group">
+                        <a href="https://google.com" class="btn" target="_blank">Скачать на Google Play</a>
                     </div>
                 </div>
             </div>
 
         </div>
 
-        <h2>Контакты</h2>
-        <p>По вопросам сотрудничества, партнерства или поддержки пишите нам на почту:</p>
-        <p><strong>your-email@gmail.com</strong></p>
+        <h2>Где играть</h2>
+        <div class="info-section">
+            <p>Все наши проекты официально доступны для мобильных устройств под управлением Android. Вы можете найти полный список и следить за обновлениями на нашей <a href="https://play.google.com/store/apps/dev?id=7002394918366173337" class="contacts-link" target="_blank">странице разработчика в Google Play</a>.</p>
+        </div>
+
+        <h2>Контакты и поддержка</h2>
+        <div class="info-section">
+            <p>По вопросам сотрудничества, партнерства или технической поддержки ваших игр, пожалуйста, свяжитесь с нами по электронной почте:</p>
+            <p><strong>contact@mjgames.io</strong> <em>(или замените на ваш рабочий email)</em></p>
+        </div>
     </div>
 
     <div class="footer">
-        <p>© 2026 MJ Games Studio</p>
+        <p>© 2026 MJ Games. Все права защищены.</p>
     </div>
 
 </body>
