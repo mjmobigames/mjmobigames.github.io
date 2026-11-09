@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MJ Games Studio — Игры для мобильных и браузеров</title>
+    <style>
+        :root {
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --accent: #38bdf8;
+            --btn-bg: #ff4757;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+        header {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        h1 { font-size: 3rem; margin-bottom: 10px; }
+        .subtitle { color: var(--text-muted); font-size: 1.2rem; max-width: 600px; margin: 0 auto 30px; }
+        
+        .container { max-width: 1100px; margin: 0 auto; padding: 20px; }
+        
+        h2 { border-bottom: 2px solid var(--card-bg); padding-bottom: 10px; margin-top: 50px; }
+        
+        /* Сетка для игр */
+        .games-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+        .game-card {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+        .game-info { padding: 20px; flex-grow: 1; display: flex; flex-direction: column; }
+        .game-genre { color: var(--accent); font-size: 0.85rem; font-weight: bold; text-transform: uppercase; }
+        .game-title { font-size: 1.5rem; margin: 10px 0; }
+        .game-desc { color: var(--text-muted); font-size: 0.95rem; flex-grow: 1; margin-bottom: 20px; }
+        
+        /* Кнопки */
+        .buttons-group { display: flex; gap: 10px; flex-wrap: wrap; }
+        .btn {
+            background-color: var(--btn-bg);
+            color: white;
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            transition: opacity 0.2s;
+        }
+        .btn:hover { opacity: 0.9; }
+        .btn.secondary { background-color: #475569; }
+
+        /* Контакты */
+        .footer { text-align: center; padding: 60px 20px; color: var(--text-muted); }
+        .footer a { color: var(--accent); text-decoration: none; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>MJ Games Studio</h1>
+        <p class="subtitle">Мы создаем яркие казуальные, аркадные и пазл-игры для мобильных телефонов и браузеров.</p>
+    </header>
+
+    <div class="container">
+        <h2>Наши игры</h2>
+        <div class="games-grid">
+            
+            <!-- КАРТОЧКА ИГРЫ 1 -->
+            <div class="game-card">
+                <div class="game-info">
+                    <span class="game-genre">Пазл</span>
+                    <h3 class="game-title">Название вашей игры 1</h3>
+                    <p class="game-desc">Короткое и интересное описание первой игры. Расскажите игроку, в чем суть игрового процесса.</p>
+                    <div class="buttons-group">
+                        <a href="ССЫЛКА_НА_GOOGLE_PLAY" class="btn" target="_blank">Google Play</a>
+                        <a href="ССЫЛКА_НА_БРАУЗЕРНУЮ_ВЕРСИЮ" class="btn secondary" target="_blank">Играть в браузере</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- КАРТОЧКА ИГРЫ 2 -->
+            <div class="game-card">
+                <div class="game-info">
+                    <span class="game-genre">Аркада</span>
+                    <h3 class="game-title">Название вашей игры 2</h3>
+                    <p class="game-desc">Короткое и интересное описание второй игры. Что нужно делать игроку, чтобы победить?</p>
+                    <div class="buttons-group">
+                        <a href="ССЫЛКА_НА_GOOGLE_PLAY" class="btn" target="_blank">Google Play</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <h2>Контакты</h2>
+        <p>По вопросам сотрудничества, партнерства или поддержки пишите нам на почту:</p>
+        <p><strong>your-email@gmail.com</strong></p>
+    </div>
+
+    <div class="footer">
+        <p>© 2026 MJ Games Studio</p>
+    </div>
+
+</body>
+</html>
