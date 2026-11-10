@@ -27,27 +27,32 @@
             overflow-x: hidden;
         }
 
-        /* --- HERO SECTION --- */
+        /* --- HERO SECTION (ИСПРАВЛЕНО) --- */
         .hero {
-            /* Градиент от 281156 до 7816AC */
             background: linear-gradient(135deg, #281156, #7816AC);
             color: var(--text-white);
-            padding: 20px 0 80px;
+            padding: 20px 0 100px;
             position: relative;
+            min-height: 520px; /* Фиксируем минимальную высоту для соответствия макету */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
         .nav-container {
             max-width: 1100px;
             margin: 0 auto;
             padding: 0 20px;
+            width: 100%;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            position: relative;
+            z-index: 2; /* Меню всегда поверх картинки */
         }
 
-        /* Логотип картинкой */
         .logo-img {
-            height: 55px; /* Высоту можно отрегулировать под ваш макет */
+            height: 55px;
             display: block;
             object-fit: contain;
         }
@@ -72,16 +77,19 @@
 
         .hero-content {
             max-width: 1100px;
-            margin: 60px auto 0;
+            margin: 40px auto 0;
             padding: 0 20px;
+            width: 100%;
+            flex-grow: 1;
             display: flex;
             align-items: center;
-            justify-content: space-between;
             position: relative;
         }
 
         .hero-text {
             max-width: 550px;
+            position: relative;
+            z-index: 2; /* Текст поверх картинки */
         }
 
         .hero-text h1 {
@@ -90,18 +98,25 @@
             line-height: 1.2;
         }
 
-        /* Блок под вашу картинку телефона */
+        /* Картинка на всю высоту секции справа */
         .hero-graphics {
-            width: 400px;
+            position: absolute;
+            top: 0;
+            right: 0;
+            height: 100%;
+            width: 50%; /* Занимает правую половину экрана */
             display: flex;
-            justify-content: center;
+            justify-content: flex-end;
             align-items: center;
+            z-index: 1;
+            pointer-events: none; /* Чтобы картинка не мешала кликам */
         }
 
         .hero-phone-img {
-            max-width: 100%;
-            height: auto;
+            height: 100%;
+            width: auto;
             object-fit: contain;
+            object-position: right center; /* Прижимаем графику к правому краю */
         }
 
         /* --- OUR GAMES SECTION --- */
@@ -136,7 +151,6 @@
             text-align: left;
         }
 
-        /* Временные фоны для баннеров (пока вы не замените их картинками по инструкции из прошлого шага) */
         .game-banner {
             height: 180px;
             display: flex;
@@ -257,18 +271,28 @@
 
         /* Адаптивность для мобильных */
         @media (max-width: 900px) {
+            .hero {
+                min-height: auto;
+                padding-bottom: 40px;
+            }
             .hero-content {
                 flex-direction: column;
                 text-align: center;
+                margin-top: 30px;
             }
             .hero-text h1 {
                 font-size: 2.3rem;
-                margin-bottom: 30px;
             }
             .hero-graphics {
+                position: relative;
                 width: 100%;
-                max-width: 300px;
-                margin-top: 20px;
+                max-width: 260px;
+                height: 280px;
+                margin: 30px auto 0;
+                justify-content: center;
+            }
+            .hero-phone-img {
+                object-position: center;
             }
             .games-grid {
                 grid-template-columns: 1fr;
@@ -285,10 +309,9 @@
 </head>
 <body>
 
-    <!-- ВЕРХНЯЯ СЕКЦИЯ С ГРАДИЕНТОМ -->
+    <!-- ВЕРХНЯЯ СЕКЦИЯ С ГРАДИЕНТОМ И ФОНОВОЙ КАРТИНКОЙ -->
     <section class="hero">
         <div class="nav-container">
-            <!-- Картинка логотипа в шапке -->
             <img src="logo.png" alt="MJ Games" class="logo-img">
             <nav class="nav-links">
                 <a href="#games">Our games</a>
@@ -300,8 +323,8 @@
             <div class="hero-text">
                 <h1>We develop mobile games that you want to play</h1>
             </div>
+            <!-- Картинка теперь растягивается на всю высоту секции справа -->
             <div class="hero-graphics">
-                <!-- Картинка телефона из макета -->
                 <img src="hero_image.png" alt="Featured Game" class="hero-phone-img">
             </div>
         </div>
@@ -326,19 +349,3 @@
                     <div class="store-buttons">
                         <a href="https://google.com" class="store-icon" title="Google Play" target="_blank">▶</a>
                         <a href="#" class="store-icon" title="App Store">🍎</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 4 Pics 1 Word -->
-            <div class="game-card card-4pics-en">
-                <div class="game-banner">4 PICS 1 WORD</div>
-                <div class="game-details">
-                    <div class="game-meta">
-                        <div class="game-icon-placeholder"></div>
-                        <div class="game-title-block">
-                            <h3>4 Pics 1 Word</h3>
-                            <p>Offline puzzle game</p>
-                        </div>
-                    </div>
-                    <div class="store-buttons">
