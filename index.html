@@ -71,7 +71,6 @@
             transition: color 0.2s;
         }
 
-        /* Изменено: Цвет при наведении теперь в тон логотипа (#F1AF3D) */
         .nav-links a:hover {
             opacity: 1;
             color: var(--accent-gold);
@@ -158,6 +157,77 @@
             text-align: left;
         }
 
+        /* --- НОВЫЙ СТИЛЬ КАРТОЧКИ С ИГРОЙ (СВЕТЛЫЙ ГРАДИЕНТ ПО МАКЕТУ) --- */
+        .cryptogram-card-layout {
+            height: 380px; /* Фиксированная высота как на эталоне Hitapps */
+            /* Наложение градиента: снизу 100% непрозрачный #E6FBE6, кверху уходит в 0% */
+            background: linear-gradient(to top, rgba(230, 251, 230, 1) 0%, rgba(230, 251, 230, 1) 35%, rgba(230, 251, 230, 0) 100%), 
+                        url('cryptogram_bg2.png');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end; 
+            border: none;
+        }
+
+        .game-details-content {
+            padding: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+        }
+
+        .game-meta-block {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .game-avatar-img {
+            width: 54px;
+            height: 54px;
+            border-radius: 12px;
+            object-fit: cover;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .game-title-text h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #000000; /* Черный текст для хорошей читаемости на плашке #E6FBE6 */
+            margin-bottom: 2px;
+        }
+
+        .game-title-text p {
+            font-size: 0.85rem;
+            color: #555555;
+            font-weight: 500;
+        }
+
+        .store-buttons-row {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .store-btn-link {
+            display: block;
+            transition: transform 0.2s;
+        }
+
+        .store-btn-link:hover {
+            transform: scale(1.05);
+        }
+
+        .store-btn-link img {
+            height: 36px;
+            width: auto;
+            display: block;
+        }
+
+        /* Временные стили старых карточек до их перевода на новый формат */
         .game-banner {
             height: 220px;
             display: flex;
@@ -168,13 +238,11 @@
             font-weight: bold;
             letter-spacing: 2px;
         }
-
-        .card-cryptogram .game-banner { background: linear-gradient(135deg, #51c4d3, #3b2591); }
         .card-4pics-en .game-banner { background: linear-gradient(135deg, #7c1bcf, #140d3a); }
         .card-4pics-es .game-banner { background: linear-gradient(135deg, #4c118a, #0b0721); }
         .card-4pics-ru .game-banner { background: linear-gradient(135deg, #1c52a3, #140d3a); }
-
-        .game-details {
+        
+        .game-details-old {
             padding: 24px;
             background-color: #0c0a21;
             color: var(--text-white);
@@ -182,53 +250,10 @@
             align-items: center;
             justify-content: space-between;
         }
-
-        .game-meta {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .game-icon-placeholder {
-            width: 48px;
-            height: 48px;
-            background-color: #291570;
-            border-radius: 10px;
-        }
-
-        .game-title-block h3 {
-            font-size: 1.2rem;
-            font-weight: 600;
-            margin-bottom: 2px;
-        }
-
-        .game-title-block p {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-        }
-
-        .store-buttons {
-            display: flex;
-            gap: 8px;
-        }
-
-        .store-icon {
-            width: 36px;
-            height: 36px;
-            background-color: #1c1936;
-            border-radius: 6px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #fff;
-            text-decoration: none;
-            font-size: 0.85rem;
-            border: 1px solid #322d5e;
-            transition: background-color 0.2s;
-        }
-
-        .store-icon:hover {
-            background-color: #7816AC;
+        .store-icon-old {
+            width: 36px; height: 36px; background-color: #1c1936; border-radius: 6px;
+            display: flex; align-items: center; justify-content: center; color: #fff;
+            text-decoration: none; font-size: 0.85rem; border: 1px solid #322d5e;
         }
 
         /* --- FOOTER --- */
@@ -279,7 +304,7 @@
             color: var(--text-muted);
         }
 
-        /* --- АДАПТИВНОСТЬ (ИСПРАВЛЕНЫ ОТСТУПЫ СНИЗУ) --- */
+        /* --- АДАПТИВНОСТЬ --- */
         @media (max-width: 900px) {
             .hero {
                 height: auto;
@@ -301,7 +326,6 @@
             .hero-text h1 {
                 font-size: 2.4rem;
             }
-            /* Изменено: Убраны внутренние флекс-отступы, контейнер прижат строго вниз */
             .hero-graphics {
                 position: relative;
                 top: 0;
@@ -312,7 +336,6 @@
                 margin: 20px auto 0;
                 display: block;
             }
-            /* Изменено: Сама картинка телефона сбрасывает все нижние отступы строки */
             .hero-phone-img {
                 width: 100%;
                 height: auto;
@@ -332,35 +355,7 @@
                 text-align: center;
                 padding: 0 20px;
             }
-        }
-    </style>
-</head>
-<body>
-
-    <section class="hero">
-        <div class="nav-container">
-            <img src="logo.png" alt="MJ Games" class="logo-img">
-            <nav class="nav-links">
-                <a href="#games">Our games</a>
-                <a href="#contact">Contact</a>
-            </nav>
-        </div>
-
-        <div class="hero-content">
-            <div class="hero-text">
-                <h1>We develop mobile games that you want to play</h1>
-            </div>
-            <div class="hero-graphics">
-                <img src="hero_image3.png" alt="Featured Game" class="hero-phone-img">
-            </div>
-        </div>
-    </section>
-
-    <section class="games-section" id="games">
-        <h2>Our games</h2>
-        <div class="games-grid">
-            
-            <div class="game-card card-cryptogram">
-                <div class="game-banner">CRYPTOGRAM CLUES</div>
-                <div class="game-details">
-                    <div class="game-meta">
+            .game-details-content {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
