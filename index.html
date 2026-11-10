@@ -11,22 +11,15 @@
             --text-white: #ffffff;
             --text-dark: #000000;
             --text-muted: #757575;
-            --accent-gold: #F1AF3D; /* Точный тон логотипа */
+            --accent-gold: #F1AF3D;
         }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
+        * { box-sizing: border-box; margin: 0; padding: 0; }
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
             background-color: var(--white-bg);
             color: var(--text-dark);
             overflow-x: hidden;
         }
-
         /* --- HERO SECTION --- */
         .hero {
             background: linear-gradient(135deg, #281156, #7816AC);
@@ -38,7 +31,6 @@
             display: flex;
             flex-direction: column;
         }
-
         .nav-container {
             max-width: 1200px;
             margin: 0 auto;
@@ -50,18 +42,8 @@
             position: relative;
             z-index: 10;
         }
-
-        .logo-img {
-            height: 60px;
-            display: block;
-            object-fit: contain;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 40px;
-        }
-
+        .logo-img { height: 60px; display: block; object-fit: contain; }
+        .nav-links { display: flex; gap: 40px; }
         .nav-links a {
             color: var(--text-white);
             text-decoration: none;
@@ -70,12 +52,7 @@
             opacity: 0.9;
             transition: color 0.2s;
         }
-
-        .nav-links a:hover {
-            opacity: 1;
-            color: var(--accent-gold);
-        }
-
+        .nav-links a:hover { opacity: 1; color: var(--accent-gold); }
         .hero-content {
             max-width: 1200px;
             margin: 0 auto;
@@ -87,169 +64,66 @@
             position: relative;
             height: calc(100% - 90px);
         }
-
-        .hero-text {
-            max-width: 580px;
-            position: relative;
-            z-index: 5;
-            margin-top: -50px;
-        }
-
-        .hero-text h1 {
-            font-size: 3.8rem;
-            font-weight: 800;
-            line-height: 1.15;
-            letter-spacing: -0.5px;
-        }
-
+        .hero-text { max-width: 580px; position: relative; z-index: 5; margin-top: -50px; }
+        .hero-text h1 { font-size: 3.8rem; font-weight: 800; line-height: 1.15; letter-spacing: -0.5px; }
         .hero-graphics {
             position: absolute;
-            top: 90px;
-            bottom: 0;
-            right: 0;
-            height: auto;
-            width: 55%;
-            z-index: 1;
-            pointer-events: none;
-            display: flex;
-            justify-content: flex-end;
-            align-items: flex-end;
+            top: 90px; bottom: 0; right: 0;
+            height: auto; width: 55%;
+            z-index: 1; pointer-events: none;
+            display: flex; justify-content: flex-end; align-items: flex-end;
         }
-
-        .hero-phone-img {
-            height: 100%;
-            width: auto;
-            object-fit: contain;
-            object-position: right bottom;
-        }
+        .hero-phone-img { height: 100%; width: auto; object-fit: contain; object-position: right bottom; }
 
         /* --- OUR GAMES SECTION --- */
         .games-section {
             background-color: var(--white-bg);
             padding: 80px 0 100px;
             text-align: center;
-            position: relative;
-            z-index: 5;
+            position: relative; z-index: 5;
         }
-
-        .games-section h2 {
-            font-size: 2.5rem;
-            font-weight: 800;
-            margin-bottom: 50px;
-        }
-
+        .games-section h2 { font-size: 2.5rem; font-weight: 800; margin-bottom: 50px; }
         .games-grid {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 40px;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(480px, 1fr));
-            gap: 40px;
+            max-width: 1200px; margin: 0 auto; padding: 0 40px;
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(480px, 1fr)); gap: 40px;
         }
-
         .game-card {
-            background-color: #0c0a21;
+            height: 380px;
             border-radius: 24px;
             overflow: hidden;
-            display: flex;
-            flex-direction: column;
+            display: flex; flex-direction: column; justify-content: flex-end;
             box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-            text-align: left;
+            background-size: cover; background-position: center;
         }
-
-        /* --- НОВЫЙ СТИЛЬ КАРТОЧКИ С ИГРОЙ (СВЕТЛЫЙ ГРАДИЕНТ ПО МАКЕТУ) --- */
-        .cryptogram-card-layout {
-            height: 380px; /* Фиксированная высота как на эталоне Hitapps */
-            /* Наложение градиента: снизу 100% непрозрачный #E6FBE6, кверху уходит в 0% */
-            background: linear-gradient(to top, rgba(230, 251, 230, 1) 0%, rgba(230, 251, 230, 1) 35%, rgba(230, 251, 230, 0) 100%), 
-                        url('cryptogram_bg2.png');
-            background-size: cover;
-            background-position: center;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end; 
-            border: none;
+        /* Специфический стиль первой карточки (Градиент идет снизу вверх) */
+        .cryptogram-card {
+            background-image: linear-gradient(to top, rgba(230, 251, 230, 1) 0%, rgba(230, 251, 230, 1) 35%, rgba(230, 251, 230, 0) 100%), url('cryptogram_bg2.png');
         }
+        /* Временные фоны для остальных карточек */
+        .card-en { background-image: linear-gradient(135deg, #7c1bcf, #140d3a); }
+        .card-es { background-image: linear-gradient(135deg, #4c118a, #0b0721); }
+        .card-ru { background-image: linear-gradient(135deg, #1c52a3, #140d3a); }
 
         .game-details-content {
             padding: 24px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
+            display: flex; align-items: center; justify-content: space-between;
             width: 100%;
         }
-
-        .game-meta-block {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .game-avatar-img {
-            width: 54px;
-            height: 54px;
-            border-radius: 12px;
-            object-fit: cover;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .game-title-text h3 {
-            font-size: 1.25rem;
-            font-weight: 700;
-            color: #000000; /* Черный текст для хорошей читаемости на плашке #E6FBE6 */
-            margin-bottom: 2px;
-        }
-
-        .game-title-text p {
-            font-size: 0.85rem;
-            color: #555555;
-            font-weight: 500;
-        }
-
-        .store-buttons-row {
-            display: flex;
-            gap: 10px;
-            align-items: center;
-        }
-
-        .store-btn-link {
-            display: block;
-            transition: transform 0.2s;
-        }
-
-        .store-btn-link:hover {
-            transform: scale(1.05);
-        }
-
-        .store-btn-link img {
-            height: 36px;
-            width: auto;
-            display: block;
-        }
-
-        /* Временные стили старых карточек до их перевода на новый формат */
-        .game-banner {
-            height: 220px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: rgba(255,255,255,0.7);
-            font-size: 1.5rem;
-            font-weight: bold;
-            letter-spacing: 2px;
-        }
-        .card-4pics-en .game-banner { background: linear-gradient(135deg, #7c1bcf, #140d3a); }
-        .card-4pics-es .game-banner { background: linear-gradient(135deg, #4c118a, #0b0721); }
-        .card-4pics-ru .game-banner { background: linear-gradient(135deg, #1c52a3, #140d3a); }
+        .game-meta-block { display: flex; align-items: center; gap: 15px; text-align: left; }
+        .game-avatar-img { width: 54px; height: 54px; border-radius: 12px; object-fit: cover; }
+        .game-avatar-old { width: 48px; height: 48px; background: #291570; border-radius: 10px; }
         
-        .game-details-old {
-            padding: 24px;
-            background-color: #0c0a21;
-            color: var(--text-white);
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
+        /* Цвета текстов зависят от фона плашки */
+        .cryptogram-card h3 { font-size: 1.25rem; font-weight: 700; color: #000000; margin-bottom: 2px; }
+        .cryptogram-card p { font-size: 0.85rem; color: #555555; font-weight: 500; }
+        
+        .old-text h3 { font-size: 1.1rem; font-weight: 600; color: #ffffff; margin-bottom: 2px; }
+        .old-text p { font-size: 0.85rem; color: #a5a1ca; }
+
+        .store-buttons-row { display: flex; gap: 10px; align-items: center; }
+        .store-btn-link { display: block; transition: transform 0.2s; }
+        .store-btn-link:hover { transform: scale(1.05); }
+        .store-btn-link img { height: 36px; width: auto; display: block; }
         .store-icon-old {
             width: 36px; height: 36px; background-color: #1c1936; border-radius: 6px;
             display: flex; align-items: center; justify-content: center; color: #fff;
@@ -257,105 +131,88 @@
         }
 
         /* --- FOOTER --- */
-        footer {
-            background-color: var(--dark-bg);
-            color: var(--text-white);
-            padding: 50px 0 20px;
-        }
-
+        footer { background-color: var(--dark-bg); color: var(--text-white); padding: 50px 0 20px; }
         .footer-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 40px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 20px;
+            max-width: 1200px; margin: 0 auto; padding: 0 40px;
+            display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px;
         }
-
-        .footer-center {
-            font-size: 1rem;
-            color: var(--text-white);
-            font-weight: 500;
-        }
-
-        .footer-links {
-            display: flex;
-            gap: 25px;
-        }
-
-        .footer-links a {
-            color: var(--text-muted);
-            text-decoration: none;
-            font-size: 0.95rem;
-            transition: color 0.2s;
-        }
-
-        .footer-links a:hover {
-            color: var(--text-white);
-        }
-
-        .copyright {
-            width: 100%;
-            text-align: center;
-            margin-top: 40px;
-            font-size: 0.85rem;
-            color: var(--text-muted);
-        }
+        .footer-center { font-size: 1rem; color: var(--text-white); font-weight: 500; }
+        .footer-links { display: flex; gap: 25px; }
+        .footer-links a { color: var(--text-muted); text-decoration: none; font-size: 0.95rem; transition: color 0.2s; }
+        .footer-links a:hover { color: var(--text-white); }
+        .copyright { width: 100%; text-align: center; margin-top: 40px; font-size: 0.85rem; color: var(--text-muted); }
 
         /* --- АДАПТИВНОСТЬ --- */
         @media (max-width: 900px) {
-            .hero {
-                height: auto;
-            }
-            .nav-container {
-                padding: 0 20px;
-            }
-            .hero-content {
-                flex-direction: column;
-                text-align: center;
-                padding: 0 20px;
-                height: auto;
-            }
-            .hero-text {
-                margin-top: 40px;
-                max-width: 100%;
-                margin-bottom: 20px;
-            }
-            .hero-text h1 {
-                font-size: 2.4rem;
-            }
-            .hero-graphics {
-                position: relative;
-                top: 0;
-                right: 0;
-                width: 100%;
-                max-width: 300px;
-                height: auto;
-                margin: 20px auto 0;
-                display: block;
-            }
-            .hero-phone-img {
-                width: 100%;
-                height: auto;
-                display: block;
-                vertical-align: bottom;
-                object-position: center bottom;
-            }
-            .games-grid {
-                grid-template-columns: 1fr;
-                padding: 0 20px;
-            }
-            .game-card {
-                max-width: 100%;
-            }
-            .footer-container {
-                flex-direction: column;
-                text-align: center;
-                padding: 0 20px;
-            }
-            .game-details-content {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 15px;
+            .hero { height: auto; }
+            .nav-container { padding: 0 20px; }
+            .hero-content { flex-direction: column; text-align: center; padding: 0 20px; height: auto; }
+            .hero-text { margin-top: 40px; max-width: 100%; margin-bottom: 20px; }
+            .hero-text h1 { font-size: 2.4rem; }
+            .hero-graphics { position: relative; top: 0; right: 0; width: 100%; max-width: 300px; height: auto; margin: 20px auto 0; display: block; }
+            .hero-phone-img { width: 100%; height: auto; display: block; vertical-align: bottom; object-position: center bottom; }
+            .games-grid { grid-template-columns: 1fr; padding: 0 20px; }
+            .game-card { max-width: 100%; }
+            .footer-container { flex-direction: column; text-align: center; padding: 0 20px; }
+            .game-details-content { flex-direction: column; align-items: flex-start; gap: 15px; }
+            .store-buttons-row { width: 100%; justify-content: flex-start; }
+        }
+    </style>
+</head>
+<body>
+
+    <section class="hero">
+        <div class="nav-container">
+            <img src="logo.png" alt="MJ Games" class="logo-img">
+            <nav class="nav-links">
+                <a href="#games">Our games</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </div>
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>We develop mobile games that you want to play</h1>
+            </div>
+            <div class="hero-graphics">
+                <img src="hero_image.png" alt="Featured Game" class="hero-phone-img">
+            </div>
+        </div>
+    </section>
+
+    <section class="games-section" id="games">
+        <h2>Our games</h2>
+        <div class="games-grid">
+            
+            <!-- Карточка 1: СВЕРСТАНА ПОЛНОСТЬЮ -->
+            <div class="game-card cryptogram-card">
+                <div class="game-details-content">
+                    <div class="game-meta-block">
+                        <img src="cryptogram_logo.png" alt="Cryptogram Clues Logo" class="game-avatar-img">
+                        <div class="game-title-text">
+                            <h3>Cryptogram clues</h3>
+                            <p>Word Puzzles</p>
+                        </div>
+                    </div>
+                    <div class="store-buttons-row">
+                        <a href="#" class="store-btn-link"><img src="appstore_icon.png" alt="App Store"></a>
+                        <a href="https://google.com" class="store-btn-link" target="_blank"><img src="googlePlay_icon.png" alt="Google Play"></a>
+                        <a href="#" class="store-btn-link"><img src="rustore_icon.png" alt="RuStore"></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Карточка 2: Заглушка -->
+            <div class="game-card card-en">
+                <div class="game-details-content">
+                    <div class="game-meta-block">
+                        <div class="game-avatar-old"></div>
+                        <div class="old-text"><h3>4 Pics 1 Word</h3><p>Offline puzzle game</p></div>
+                    </div>
+                    <div class="store-buttons-row"><a href="#" class="store-icon-old">▶</a></div>
+                </div>
+            </div>
+
+            <!-- Карточка 3: Заглушка -->
+            <div class="game-card card-es">
+                <div class="game-details-content">
+                    <div class="game-meta-block">
