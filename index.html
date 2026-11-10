@@ -158,17 +158,89 @@
             text-decoration: none; font-size: 0.85rem; border: 1px solid #322d5e;
         }
 
-        /* --- FOOTER --- */
-        footer { background-color: var(--dark-bg); color: var(--text-white); padding: 50px 0 20px; }
-        .footer-container {
-            max-width: 1200px; margin: 0 auto; padding: 0 40px;
-            display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px;
+                /* --- FOOTER (ОБНОВЛЕН ПОД МАКЕТ) --- */
+        footer {
+            background-color: #1c1a17; /* Точный темно-серый цвет фона */
+            color: #ffffff;
+            padding: 40px 0 30px;
         }
-        .footer-center { font-size: 1rem; color: var(--text-white); font-weight: 500; }
-        .footer-links { display: flex; gap: 25px; }
-        .footer-links a { color: var(--text-muted); text-decoration: none; font-size: 0.95rem; transition: color 0.2s; }
-        .footer-links a:hover { color: var(--text-white); }
-        .copyright { width: 100%; text-align: center; margin-top: 40px; font-size: 0.85rem; color: var(--text-muted); }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap; /* Позволяет копирайту уйти на вторую строку */
+            position: relative;
+        }
+
+        .footer-logo {
+            height: 50px; /* Высота логотипа в футере */
+            display: block;
+            object-fit: contain;
+        }
+
+        .footer-center {
+            font-size: 1rem;
+            color: #ffffff;
+            font-weight: 400;
+            /* Сдвигаем на больших экранах ближе к центру, не ломая флекс */
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 25px;
+        }
+
+        .footer-links a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 0.95rem;
+            opacity: 0.9;
+            transition: color 0.2s, opacity 0.2s;
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+            color: var(--accent-gold);
+        }
+
+        .copyright {
+            width: 100%;
+            text-align: center;
+            margin-top: 40px; /* Отступ сверху, чтобы опустить подпись */
+            font-size: 0.9rem;
+            color: #ffffff;
+            opacity: 0.7;
+        }
+
+        /* Адаптивность для мобильных девайсов */
+        @media (max-width: 900px) {
+            .footer-container {
+                flex-direction: column;
+                text-align: center;
+                gap: 25px;
+                padding: 0 20px;
+            }
+            .footer-center {
+                position: static;
+                transform: none;
+            }
+            .footer-links {
+                flex-direction: row;
+                justify-content: center;
+                gap: 20px;
+            }
+            .copyright {
+                margin-top: 20px;
+            }
+        }
+
 
         /* --- АДАПТИВНОСТЬ --- */
         @media (max-width: 900px) {
@@ -284,5 +356,29 @@
                     </div>
                 </div>
             </div>
+        </section>
+    <footer id="contact">
+        <div class="footer-container">
+            <!-- Логотип слева -->
+            <img src="logo.svg" alt="MJ Games" class="footer-logo">
+            
+            <!-- Почта по центру -->
+            <div class="footer-center">
+                mjmobigames@gmail.com
+            </div>
+            
+            <!-- Ссылки справа -->
+            <div class="footer-links">
+                <a href="#">Privacy</a>
+                <a href="#">Terms of service</a>
+            </div>
+            
+            <!-- Копирайт на отдельной строке снизу -->
+            <div class="copyright">
+                © 2026 MJ Games
+            </div>
+        </div>
+    </footer>
+
 
 
