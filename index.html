@@ -27,16 +27,17 @@
             overflow-x: hidden;
         }
 
-        /* --- HERO SECTION (ИСПРАВЛЕНО НАЛОЖЕНИЕ И ОТСТУП СВЕРХУ) --- */
+        /* --- HERO SECTION (ИСПРАВЛЕНО ПОД СТИЛЬ HITAPPS) --- */
         .hero {
             background: linear-gradient(135deg, #281156, #7816AC);
             color: var(--text-white);
             padding-top: 30px;
             position: relative;
-            height: 680px; /* Высота секции как в макете */
+            height: 640px; /* Фиксированная высота шапки как в макете */
             width: 100%;
             display: flex;
             flex-direction: column;
+            overflow: hidden; /* Обрезает выходящие части фоновой графики */
         }
 
         .nav-container {
@@ -48,7 +49,7 @@
             justify-content: space-between;
             align-items: center;
             position: relative;
-            z-index: 10; /* Меню всегда над графикой */
+            z-index: 10; /* Меню всегда поверх фоновой картинки */
         }
 
         .logo-img {
@@ -91,7 +92,7 @@
         .hero-text {
             max-width: 580px;
             position: relative;
-            z-index: 5;
+            z-index: 5; /* Текст находится поверх картинки */
             margin-top: -50px;
         }
 
@@ -102,26 +103,25 @@
             letter-spacing: -0.5px;
         }
 
-        /* Позиционирование: фиксированный отступ сверху и прижим к низу */
+        /* Фоновая графика справа — абсолютное позиционирование */
         .hero-graphics {
             position: absolute;
-            top: 90px; /* Небольшой аккуратный отступ строго под линией хедера */
-            bottom: 0;   /* Прижимаем впритык к нижней границе секции */
+            bottom: -5%; /* Слегка уводим вниз за рамку секции, как на макете */
             right: 0;
-            height: auto; /* Высота подстраивается автоматически без обрезки */
-            width: 55%;
+            height: 95%; /* Картинка занимает почти всю высоту блока */
+            width: 50%;  /* Занимает правую половину экрана */
             z-index: 1;
-            pointer-events: none;
+            pointer-events: none; /* Пропускает клики */
             display: flex;
             justify-content: flex-end;
-            align-items: flex-end; /* Графика внутри блока выравнивается по нижней линии */
+            align-items: flex-end;
         }
 
         .hero-phone-img {
             height: 100%;
             width: auto;
             object-fit: contain;
-            object-position: right bottom;
+            object-position: right bottom; /* Прижимаем изображение к правому нижнему углу */
         }
 
         /* --- OUR GAMES SECTION --- */
@@ -130,7 +130,7 @@
             padding: 80px 0 100px;
             text-align: center;
             position: relative;
-            z-index: 5;
+            z-index: 5; /* Контент игр перекрывает уходящий фон шапки */
         }
 
         .games-section h2 {
@@ -252,7 +252,6 @@
         .footer-center {
             font-size: 1rem;
             color: var(--text-white);
-            font-weight: 500;
         }
 
         .footer-links {
@@ -279,7 +278,7 @@
             color: var(--text-muted);
         }
 
-        /* --- АДAПТИВНОСТЬ --- */
+        /* --- АДАПТИВНОСТЬ ПОД МОБИЛЬНЫЕ УСТРОЙСТВА --- */
         @media (max-width: 900px) {
             .hero {
                 height: auto;
@@ -303,7 +302,7 @@
             }
             .hero-graphics {
                 position: relative;
-                top: 0;
+                bottom: 0;
                 right: 0;
                 width: 100%;
                 max-width: 300px;
@@ -332,6 +331,7 @@
 </head>
 <body>
 
+    <!-- ВЕРХНЯЯ СЕКЦИЯ С ГРАДИЕНТОМ И АБСОЛЮТНЫМ ФОНОМ СТРАНИЦЫ -->
     <section class="hero">
         <div class="nav-container">
             <img src="logo.png" alt="MJ Games" class="logo-img">
@@ -345,17 +345,11 @@
             <div class="hero-text">
                 <h1>We develop mobile games that you want to play</h1>
             </div>
+            <!-- Слой фоновой картинки, выровненный точно по нижнему правому углу как в Hitapps -->
             <div class="hero-graphics">
-                <img src="hero_image2.png" alt="Featured Game" class="hero-phone-img">
+                <img src="hero_image.png" alt="Featured Game" class="hero-phone-img">
             </div>
         </div>
     </section>
 
-    <section class="games-section" id="games">
-        <h2>Our games</h2>
-        <div class="games-grid">
-            
-            <div class="game-card card-cryptogram">
-                <div class="game-banner">CRYPTOGRAM CLUES</div>
-                <div class="game-details">
-                    <div class="game-meta">
+    <!-- СЕКЦИЯ С ИГРАМИ -->
