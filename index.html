@@ -95,28 +95,36 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.15);
             background-size: cover; background-position: center;
         }
-        /* Специфический стиль первой карточки (Градиент идет снизу вверх) */
-        .cryptogram-card {
-            background-image: linear-gradient(to top, rgba(230, 251, 230, 1) 0%, rgba(230, 251, 230, 1) 35%, rgba(230, 251, 230, 0) 100%), url('cryptogram_bg2.png');
-        }
+        
+        /* Изменено: Убрали градиентную заливку самой карточки, оставили только фоновое изображение */
+        .cryptogram-card { background-image: url('cryptogram_bg2.png'); }
+        
         /* Временные фоны для остальных карточек */
         .card-en { background-image: linear-gradient(135deg, #7c1bcf, #140d3a); }
         .card-es { background-image: linear-gradient(135deg, #4c118a, #0b0721); }
         .card-ru { background-image: linear-gradient(135deg, #1c52a3, #140d3a); }
 
+        /* Общая плашка (полоска) для контента внизу карточки */
         .game-details-content {
             padding: 24px;
             display: flex; align-items: center; justify-content: space-between;
             width: 100%;
         }
+        
+        /* Изменено: Для первой карточки задаем полоску со сплошным цветом #E6FBE6 */
+        .cryptogram-card .game-details-content {
+            background-color: #E6FBE6;
+        }
+
         .game-meta-block { display: flex; align-items: center; gap: 15px; text-align: left; }
         .game-avatar-img { width: 54px; height: 54px; border-radius: 12px; object-fit: cover; }
         .game-avatar-old { width: 48px; height: 48px; background: #291570; border-radius: 10px; }
         
-        /* Цвета текстов зависят от фона плашки */
+        /* Тексты для светлой плашки первой карточки */
         .cryptogram-card h3 { font-size: 1.25rem; font-weight: 700; color: #000000; margin-bottom: 2px; }
         .cryptogram-card p { font-size: 0.85rem; color: #555555; font-weight: 500; }
         
+        /* Тексты для остальных старых темных карточек */
         .old-text h3 { font-size: 1.1rem; font-weight: 600; color: #ffffff; margin-bottom: 2px; }
         .old-text p { font-size: 0.85rem; color: #a5a1ca; }
 
@@ -174,7 +182,7 @@
                 <h1>We develop mobile games that you want to play</h1>
             </div>
             <div class="hero-graphics">
-                <img src="hero_image3.png" alt="Featured Game" class="hero-phone-img">
+                <img src="hero_image.png" alt="Featured Game" class="hero-phone-img">
             </div>
         </div>
     </section>
@@ -183,7 +191,7 @@
         <h2>Our games</h2>
         <div class="games-grid">
             
-            <!-- Карточка 1: СВЕРСТАНА ПОЛНОСТЬЮ -->
+            <!-- Карточка 1: Cryptogram Clues -->
             <div class="game-card cryptogram-card">
                 <div class="game-details-content">
                     <div class="game-meta-block">
@@ -210,9 +218,3 @@
                     </div>
                     <div class="store-buttons-row"><a href="#" class="store-icon-old">▶</a></div>
                 </div>
-            </div>
-
-            <!-- Карточка 3: Заглушка -->
-            <div class="game-card card-es">
-                <div class="game-details-content">
-                    <div class="game-meta-block">
