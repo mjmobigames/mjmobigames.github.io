@@ -27,13 +27,13 @@
             overflow-x: hidden;
         }
 
-        /* --- HERO SECTION (ИСПРАВЛЕНО ОБРЕЗАНИЕ КАРТИНКИ) --- */
+        /* --- HERO SECTION (ИСПРАВЛЕНО НАЛОЖЕНИЕ И ОТСТУП СВЕРХУ) --- */
         .hero {
             background: linear-gradient(135deg, #281156, #7816AC);
             color: var(--text-white);
             padding-top: 30px;
             position: relative;
-            height: 680px; /* Увеличили высоту, чтобы дать место стрелкам */
+            height: 680px; /* Высота секции как в макете */
             width: 100%;
             display: flex;
             flex-direction: column;
@@ -48,7 +48,7 @@
             justify-content: space-between;
             align-items: center;
             position: relative;
-            z-index: 10;
+            z-index: 10; /* Меню всегда над графикой */
         }
 
         .logo-img {
@@ -102,26 +102,26 @@
             letter-spacing: -0.5px;
         }
 
-        /* Изменено позиционирование, чтобы картинка не резалась сверху */
+        /* Позиционирование: фиксированный отступ сверху и прижим к низу */
         .hero-graphics {
             position: absolute;
-            top: 20px; /* Опускаем контейнер чуть ниже меню */
-            bottom: 0;
+            top: 90px; /* Небольшой аккуратный отступ строго под линией хедера */
+            bottom: 0;   /* Прижимаем впритык к нижней границе секции */
             right: 0;
-            height: calc(100% - 20px); /* Занимает всю доступную высоту */
+            height: auto; /* Высота подстраивается автоматически без обрезки */
             width: 55%;
             z-index: 1;
             pointer-events: none;
             display: flex;
             justify-content: flex-end;
-            align-items: center; /* Центрируем по вертикали, чтобы макет не обрезался */
+            align-items: flex-end; /* Графика внутри блока выравнивается по нижней линии */
         }
 
         .hero-phone-img {
             height: 100%;
             width: auto;
             object-fit: contain;
-            object-position: right center;
+            object-position: right bottom;
         }
 
         /* --- OUR GAMES SECTION --- */
@@ -279,7 +279,7 @@
             color: var(--text-muted);
         }
 
-        /* --- АДАПТИВНОСТЬ --- */
+        /* --- АДAПТИВНОСТЬ --- */
         @media (max-width: 900px) {
             .hero {
                 height: auto;
@@ -359,5 +359,3 @@
                 <div class="game-banner">CRYPTOGRAM CLUES</div>
                 <div class="game-details">
                     <div class="game-meta">
-                        <div class="game-icon-placeholder"></div>
-                        <div class="game-title-block">
