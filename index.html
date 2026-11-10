@@ -11,7 +11,7 @@
             --text-white: #ffffff;
             --text-dark: #000000;
             --text-muted: #757575;
-            --yellow-accent: #e1f524;
+            --accent-gold: #F1AF3D; /* Точный тон логотипа */
         }
 
         * {
@@ -27,17 +27,16 @@
             overflow-x: hidden;
         }
 
-        /* --- HERO SECTION (ИСПРАВЛЕНО ПОД СТИЛЬ HITAPPS) --- */
+        /* --- HERO SECTION --- */
         .hero {
             background: linear-gradient(135deg, #281156, #7816AC);
             color: var(--text-white);
             padding-top: 30px;
             position: relative;
-            height: 640px; /* Фиксированная высота шапки как в макете */
+            height: 680px;
             width: 100%;
             display: flex;
             flex-direction: column;
-            overflow: hidden; /* Обрезает выходящие части фоновой графики */
         }
 
         .nav-container {
@@ -49,7 +48,7 @@
             justify-content: space-between;
             align-items: center;
             position: relative;
-            z-index: 10; /* Меню всегда поверх фоновой картинки */
+            z-index: 10;
         }
 
         .logo-img {
@@ -72,9 +71,10 @@
             transition: color 0.2s;
         }
 
+        /* Изменено: Цвет при наведении теперь в тон логотипа (#F1AF3D) */
         .nav-links a:hover {
             opacity: 1;
-            color: var(--yellow-accent);
+            color: var(--accent-gold);
         }
 
         .hero-content {
@@ -92,7 +92,7 @@
         .hero-text {
             max-width: 580px;
             position: relative;
-            z-index: 5; /* Текст находится поверх картинки */
+            z-index: 5;
             margin-top: -50px;
         }
 
@@ -103,15 +103,15 @@
             letter-spacing: -0.5px;
         }
 
-        /* Фоновая графика справа — абсолютное позиционирование */
         .hero-graphics {
             position: absolute;
-            bottom: -5%; /* Слегка уводим вниз за рамку секции, как на макете */
+            top: 90px;
+            bottom: 0;
             right: 0;
-            height: 95%; /* Картинка занимает почти всю высоту блока */
-            width: 50%;  /* Занимает правую половину экрана */
+            height: auto;
+            width: 55%;
             z-index: 1;
-            pointer-events: none; /* Пропускает клики */
+            pointer-events: none;
             display: flex;
             justify-content: flex-end;
             align-items: flex-end;
@@ -121,7 +121,7 @@
             height: 100%;
             width: auto;
             object-fit: contain;
-            object-position: right bottom; /* Прижимаем изображение к правому нижнему углу */
+            object-position: right bottom;
         }
 
         /* --- OUR GAMES SECTION --- */
@@ -130,7 +130,7 @@
             padding: 80px 0 100px;
             text-align: center;
             position: relative;
-            z-index: 5; /* Контент игр перекрывает уходящий фон шапки */
+            z-index: 5;
         }
 
         .games-section h2 {
@@ -252,6 +252,7 @@
         .footer-center {
             font-size: 1rem;
             color: var(--text-white);
+            font-weight: 500;
         }
 
         .footer-links {
@@ -278,11 +279,10 @@
             color: var(--text-muted);
         }
 
-        /* --- АДАПТИВНОСТЬ ПОД МОБИЛЬНЫЕ УСТРОЙСТВА --- */
+        /* --- АДАПТИВНОСТЬ (ИСПРАВЛЕНЫ ОТСТУПЫ СНИЗУ) --- */
         @media (max-width: 900px) {
             .hero {
                 height: auto;
-                padding-bottom: 40px;
             }
             .nav-container {
                 padding: 0 20px;
@@ -296,23 +296,29 @@
             .hero-text {
                 margin-top: 40px;
                 max-width: 100%;
+                margin-bottom: 20px;
             }
             .hero-text h1 {
                 font-size: 2.4rem;
             }
+            /* Изменено: Убраны внутренние флекс-отступы, контейнер прижат строго вниз */
             .hero-graphics {
                 position: relative;
-                bottom: 0;
+                top: 0;
                 right: 0;
                 width: 100%;
                 max-width: 300px;
-                height: 320px;
-                margin: 40px auto 0;
-                justify-content: center;
-                align-items: center;
+                height: auto;
+                margin: 20px auto 0;
+                display: block;
             }
+            /* Изменено: Сама картинка телефона сбрасывает все нижние отступы строки */
             .hero-phone-img {
-                object-position: center;
+                width: 100%;
+                height: auto;
+                display: block;
+                vertical-align: bottom;
+                object-position: center bottom;
             }
             .games-grid {
                 grid-template-columns: 1fr;
@@ -331,7 +337,6 @@
 </head>
 <body>
 
-    <!-- ВЕРХНЯЯ СЕКЦИЯ С ГРАДИЕНТОМ И АБСОЛЮТНЫМ ФОНОМ СТРАНИЦЫ -->
     <section class="hero">
         <div class="nav-container">
             <img src="logo.png" alt="MJ Games" class="logo-img">
@@ -345,11 +350,17 @@
             <div class="hero-text">
                 <h1>We develop mobile games that you want to play</h1>
             </div>
-            <!-- Слой фоновой картинки, выровненный точно по нижнему правому углу как в Hitapps -->
             <div class="hero-graphics">
-                <img src="hero_image2.png" alt="Featured Game" class="hero-phone-img">
+                <img src="hero_image.png" alt="Featured Game" class="hero-phone-img">
             </div>
         </div>
     </section>
 
-    <!-- СЕКЦИЯ С ИГРАМИ -->
+    <section class="games-section" id="games">
+        <h2>Our games</h2>
+        <div class="games-grid">
+            
+            <div class="game-card card-cryptogram">
+                <div class="game-banner">CRYPTOGRAM CLUES</div>
+                <div class="game-details">
+                    <div class="game-meta">
