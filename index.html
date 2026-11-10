@@ -88,7 +88,6 @@
             display: grid; grid-template-columns: repeat(auto-fit, minmax(480px, 1fr)); gap: 40px;
         }
         
-        /* Изменено: карточка теперь подстраивается под контент, убрали фиксированную высоту */
         .game-card {
             border-radius: 24px;
             overflow: hidden;
@@ -98,7 +97,6 @@
             background-color: transparent;
         }
         
-        /* Изменено: Картинка сохраняет пропорции (aspect-ratio) и никогда не режется */
         .game-cover-img {
             width: 100%;
             height: auto;
@@ -106,16 +104,15 @@
             object-fit: contain;
         }
 
-        /* Полоса для контента строго под картинкой */
+        /* Изменено: отступы сверху и снизу уменьшены до 12px для компактности */
         .game-details-content {
-            padding: 12px;
+            padding: 12px 24px;
             display: flex; 
             align-items: center; 
             justify-content: space-between;
             width: 100%;
         }
         
-        /* Сплошной цвет полосы для первой карточки */
         .cryptogram-card-details {
             background-color: #E6FBE6;
         }
@@ -123,11 +120,9 @@
         .game-meta-block { display: flex; align-items: center; gap: 15px; text-align: left; }
         .game-avatar-img { width: 54px; height: 54px; border-radius: 12px; object-fit: cover; }
         
-        /* Тексты для светлой плашки первой карточки */
         .cryptogram-card-details h3 { font-size: 1.25rem; font-weight: 700; color: #000000; margin-bottom: 2px; }
         .cryptogram-card-details p { font-size: 0.85rem; color: #555555; font-weight: 500; }
         
-        /* Тексты и фоны для остальных временных заглушек */
         .old-details { background-color: #0c0a21; }
         .old-text h3 { font-size: 1.1rem; font-weight: 600; color: #ffffff; margin-bottom: 2px; }
         .old-text p { font-size: 0.85rem; color: #a5a1ca; }
@@ -172,7 +167,8 @@
             .games-grid { grid-template-columns: 1fr; padding: 0 20px; }
             .game-card { max-width: 100%; }
             .footer-container { flex-direction: column; text-align: center; padding: 0 20px; }
-            .game-details-content { flex-direction: column; align-items: flex-start; gap: 15px; }
+            /* Изменено: на мобильных устройствах уменьшаем padding и убираем лишние зазоры */
+            .game-details-content { flex-direction: column; align-items: flex-start; padding: 16px 20px; gap: 15px; }
             .store-buttons-row { width: 100%; justify-content: flex-start; }
         }
     </style>
@@ -201,11 +197,9 @@
         <h2>Our games</h2>
         <div class="games-grid">
             
-            <!-- Карточка 1: Cryptogram Clues (ОБНОВЛЕННАЯ СТРУКТУРА) -->
+            <!-- Карточка 1: Cryptogram Clues -->
             <div class="game-card">
-                <!-- Картинка вынесена отдельным тегом для сохранения пропорций -->
                 <img src="cryptogram_bg3.png" alt="Cryptogram Clues Background" class="game-cover-img">
-                <!-- Сплошная полоса с контентом начинается строго под картинкой -->
                 <div class="game-details-content cryptogram-card-details">
                     <div class="game-meta-block">
                         <img src="cryptogram_logo.png" alt="Cryptogram Clues Logo" class="game-avatar-img">
@@ -225,3 +219,9 @@
             <!-- Карточка 2: Заглушка -->
             <div class="game-card">
                 <div class="game-banner-placeholder">4 PICS 1 WORD</div>
+                <div class="game-details-content old-details">
+                    <div class="game-meta-block">
+                        <div style="width:48px;height:48px;background:#291570;border-radius:10px;"></div>
+                        <div class="old-text"><h3>4 Pics 1 Word</h3><p>Offline puzzle game</p></div>
+                    </div>
+                    <div class="store-buttons-row"><a href="#" class="store-icon-old">▶</a></div>
