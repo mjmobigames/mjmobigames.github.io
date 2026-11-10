@@ -6,7 +6,6 @@
     <title>MJ Games — Mobile games that you want to play</title>
     <style>
         :root {
-            --purple-bg: #291570;
             --white-bg: #ffffff;
             --dark-bg: #1c1a17;
             --text-white: #ffffff;
@@ -30,7 +29,8 @@
 
         /* --- HERO SECTION --- */
         .hero {
-            background-color: var(--purple-bg);
+            /* Градиент от 281156 до 7816AC */
+            background: linear-gradient(135deg, #281156, #7816AC);
             color: var(--text-white);
             padding: 20px 0 80px;
             position: relative;
@@ -45,24 +45,11 @@
             align-items: center;
         }
 
-        .logo-box {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            font-weight: 900;
-            line-height: 1;
-        }
-
-        .logo-main {
-            font-size: 2.2rem;
-            color: var(--yellow-accent);
-        }
-
-        .logo-sub {
-            font-size: 0.75rem;
-            letter-spacing: 2px;
-            color: var(--text-white);
-            margin-top: 2px;
+        /* Логотип картинкой */
+        .logo-img {
+            height: 55px; /* Высоту можно отрегулировать под ваш макет */
+            display: block;
+            object-fit: contain;
         }
 
         .nav-links {
@@ -103,34 +90,18 @@
             line-height: 1.2;
         }
 
-        /* Имитация контура телефона и графики справа */
+        /* Блок под вашу картинку телефона */
         .hero-graphics {
-            width: 380px;
-            height: 400px;
-            position: relative;
+            width: 400px;
             display: flex;
             justify-content: center;
             align-items: center;
         }
 
-        .phone-outline {
-            width: 200px;
-            height: 380px;
-            border: 3px solid var(--yellow-accent);
-            border-radius: 36px;
-            position: relative;
-        }
-
-        .phone-outline::before {
-            content: '';
-            position: absolute;
-            top: 15px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 50px;
-            height: 4px;
-            background-color: var(--yellow-accent);
-            border-radius: 2px;
+        .hero-phone-img {
+            max-width: 100%;
+            height: auto;
+            object-fit: contain;
         }
 
         /* --- OUR GAMES SECTION --- */
@@ -156,7 +127,7 @@
         }
 
         .game-card {
-            background-color: #0c0a21; /* Темный фон внутри карточек как на макете */
+            background-color: #0c0a21;
             border-radius: 24px;
             overflow: hidden;
             display: flex;
@@ -165,10 +136,9 @@
             text-align: left;
         }
 
-        /* Заглушка под баннер игры (верхняя половина карточки) */
+        /* Временные фоны для баннеров (пока вы не замените их картинками по инструкции из прошлого шага) */
         .game-banner {
             height: 180px;
-            background: linear-gradient(135deg, #3b2591, #140d3a);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -178,7 +148,6 @@
             letter-spacing: 2px;
         }
 
-        /* Специфические цвета для создания эффекта макета */
         .card-cryptogram .game-banner { background: linear-gradient(135deg, #51c4d3, #3b2591); }
         .card-4pics-en .game-banner { background: linear-gradient(135deg, #7c1bcf, #140d3a); }
         .card-4pics-es .game-banner { background: linear-gradient(135deg, #4c118a, #0b0721); }
@@ -237,7 +206,7 @@
         }
 
         .store-icon:hover {
-            background-color: var(--purple-bg);
+            background-color: #7816AC;
         }
 
         /* --- FOOTER --- */
@@ -297,7 +266,9 @@
                 margin-bottom: 30px;
             }
             .hero-graphics {
-                display: none; /* скрываем декоративный телефон на смартфонах */
+                width: 100%;
+                max-width: 300px;
+                margin-top: 20px;
             }
             .games-grid {
                 grid-template-columns: 1fr;
@@ -314,13 +285,11 @@
 </head>
 <body>
 
-    <!-- ВЕРХНЯЯ ФИОЛЕТОВАЯ СЕКЦИЯ -->
+    <!-- ВЕРХНЯЯ СЕКЦИЯ С ГРАДИЕНТОМ -->
     <section class="hero">
         <div class="nav-container">
-            <div class="logo-box">
-                <span class="logo-main">MJ</span>
-                <span class="logo-sub">GAMES</span>
-            </div>
+            <!-- Картинка логотипа в шапке -->
+            <img src="logo.png" alt="MJ Games" class="logo-img">
             <nav class="nav-links">
                 <a href="#games">Our games</a>
                 <a href="#contact">Contact</a>
@@ -332,8 +301,8 @@
                 <h1>We develop mobile games that you want to play</h1>
             </div>
             <div class="hero-graphics">
-                <!-- Декоративный контур смартфона из макета -->
-                <div class="phone-outline"></div>
+                <!-- Картинка телефона из макета -->
+                <img src="hero_image.png" alt="Featured Game" class="hero-phone-img">
             </div>
         </div>
     </section>
@@ -356,3 +325,20 @@
                     </div>
                     <div class="store-buttons">
                         <a href="https://google.com" class="store-icon" title="Google Play" target="_blank">▶</a>
+                        <a href="#" class="store-icon" title="App Store">🍎</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4 Pics 1 Word -->
+            <div class="game-card card-4pics-en">
+                <div class="game-banner">4 PICS 1 WORD</div>
+                <div class="game-details">
+                    <div class="game-meta">
+                        <div class="game-icon-placeholder"></div>
+                        <div class="game-title-block">
+                            <h3>4 Pics 1 Word</h3>
+                            <p>Offline puzzle game</p>
+                        </div>
+                    </div>
+                    <div class="store-buttons">
