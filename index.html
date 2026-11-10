@@ -158,7 +158,10 @@
             text-decoration: none; font-size: 0.85rem; border: 1px solid #322d5e;
         }
 
-                /* --- FOOTER (ФИКС ВЫРАВНИВАНИЯ И ССЫЛКИ ПОЧТЫ) --- */
+
+
+
+                /* --- FOOTER (ФИКС АБСОЛЮТНОГО ЦЕНТРИРОВАНИЯ ПОЧТЫ) --- */
         footer {
             background-color: #1c1a17;
             color: #ffffff;
@@ -171,7 +174,8 @@
             padding: 0 40px;
             display: flex;
             justify-content: space-between;
-            align-items: center; /* Выравнивает все элементы строго по одной высоте */
+            align-items: center;
+            position: relative; /* База для центрирования почты */
             flex-wrap: wrap;
         }
 
@@ -181,7 +185,15 @@
             object-fit: contain;
         }
 
-        /* Стиль для ссылки-почты по центру */
+        /* Центрирование почты относительно всего футера, а не свободного места */
+        .footer-center-wrapper {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            margin-top: -20px; /* Корректировка с учетом высоты строки и копирайта */
+        }
+
         .footer-email-link {
             color: #ffffff;
             text-decoration: none;
@@ -189,11 +201,12 @@
             font-weight: 400;
             transition: color 0.2s, opacity 0.2s;
             opacity: 0.9;
+            white-space: nowrap;
         }
 
         .footer-email-link:hover {
             opacity: 1;
-            color: var(--accent-gold); /* При наведении подсветится в тон логотипа */
+            color: var(--accent-gold);
         }
 
         .footer-links {
@@ -231,6 +244,11 @@
                 gap: 25px;
                 padding: 0 20px;
             }
+            .footer-center-wrapper {
+                position: static;
+                transform: none;
+                margin-top: 0;
+            }
             .footer-links {
                 flex-direction: row;
                 justify-content: center;
@@ -242,6 +260,9 @@
         }
 
 
+
+
+        
 
         /* --- АДАПТИВНОСТЬ --- */
         @media (max-width: 900px) {
@@ -358,15 +379,17 @@
                 </div>
             </div>
         </section>
-        <footer id="contact">
+            <footer id="contact">
         <div class="footer-container">
             <!-- Логотип слева -->
             <img src="logo.svg" alt="MJ Games" class="footer-logo">
             
-            <!-- Почта по центру в виде ссылки mailto -->
-            <a href="mailto:mjmobigames@gmail.com" class="footer-email-link">
-                mjmobigames@gmail.com
-            </a>
+            <!-- Почта строго по центру страницы -->
+            <div class="footer-center-wrapper">
+                <a href="mailto:mjmobigames@gmail.com" class="footer-email-link">
+                    mjmobigames@gmail.com
+                </a>
+            </div>
             
             <!-- Ссылки справа -->
             <div class="footer-links">
@@ -380,6 +403,7 @@
             </div>
         </div>
     </footer>
+
 
 
 
