@@ -116,6 +116,19 @@
         .cryptogram-card-details {
             background-color: #E6FBE6;
         }
+        /* Цвет плашки для второй карточки */
+        .fourpics-card-details {
+            background-color: #131432;
+        }
+
+        /* Белый цвет текста для темных плашек */
+        .dark-theme-text h3 {
+            color: #ffffff !important;
+        }
+        .dark-theme-text p {
+            color: #a5a1ca !important;
+            font-weight: 500;
+        }
 
         .game-meta-block { display: flex; align-items: center; gap: 15px; text-align: left; }
         .game-avatar-img { width: 54px; height: 54px; border-radius: 12px; object-fit: contain; }
@@ -216,12 +229,21 @@
                 </div>
             </div>
 
-            <!-- Карточка 2: Заглушка -->
+            <!-- Карточка 2: 4 Pics 1 Word -->
             <div class="game-card">
-                <div class="game-banner-placeholder">4 PICS 1 WORD</div>
-                <div class="game-details-content old-details">
+                <img src="4Pics1Word_bg.png" alt="4 Pics 1 Word Background" class="game-cover-img">
+                <div class="game-details-content fourpics-card-details">
                     <div class="game-meta-block">
-                        <div style="width:48px;height:48px;background:#291570;border-radius:10px;"></div>
-                        <div class="old-text"><h3>4 Pics 1 Word</h3><p>Offline puzzle game</p></div>
+                        <img src="4pics1word_logo.svg" alt="4 Pics 1 Word Logo" class="game-avatar-img">
+                        <div class="game-title-text dark-theme-text">
+                            <h3>4 Pics 1 Word</h3>
+                            <p>Offline puzzle game</p>
+                        </div>
                     </div>
-                    <div class="store-buttons-row"><a href="#" class="store-icon-old">▶</a></div>
+                    <div class="store-buttons-row">
+                        <a href="#" class="store-btn-link"><img src="appstore_icon.svg" alt="App Store"></a>
+                        <a href="https://google.com" class="store-btn-link" target="_blank"><img src="googlePlay_icon.svg" alt="Google Play"></a>
+                    </div>
+                </div>
+            </div>
+
