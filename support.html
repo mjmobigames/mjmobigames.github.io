@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support — MJ Games</title>
+    <style>
+        :root {
+            --bg-color: #0d0b21;
+            --card-bg: #191635;
+            --text-main: #f8fafc;
+            --text-muted: #a5a1ca;
+            --accent: #F1AF3D; /* Золотистый акцент студии */
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.7;
+            padding: 40px 20px;
+        }
+
+        .support-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: var(--card-bg);
+            padding: 40px;
+            border-radius: 24px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .header-block {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #2a2554;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+
+        .logo-img {
+            height: 45px;
+            display: block;
+            object-fit: contain;
+        }
+
+        .back-link {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: opacity 0.2s;
+        }
+
+        .back-link:hover {
+            opacity: 0.8;
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            margin-bottom: 25px;
+            color: #ffffff;
+        }
+
+        p {
+            margin-bottom: 20px;
+            color: #e2e8f0;
+            font-size: 1.1rem;
+        }
+
+        .highlight-box {
+            background-color: #231f47;
+            border-left: 4px solid var(--accent);
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 30px;
+        }
+
+        .highlight-box p {
+            margin-bottom: 0;
+            font-size: 1.05rem;
+            color: #ffffff;
+        }
+
+        .email-link {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        .email-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="support-container">
+        <div class="header-block">
+            <img src="logo.svg" alt="MJ Games" class="logo-img">
+            <a href="index.html" class="back-link">← Back to Home</a>
+        </div>
+
+        <h1>Support</h1>
+
+        <p>Whether you’re facing issues with our app, have suggestions for improvements, or just want to share some positive feedback, we’re here to listen. Please email us at <a href="mailto:mjmobigames@gmail.com" class="email-link">mjmobigames@gmail.com</a>.</p>
+
+        <div class="highlight-box">
+            <p><strong>To assist you more effectively:</strong> Make sure to include the name of the app, along with your device model and operating system version.</p>
+        </div>
+    </div>
+
+</body>
+</html>
